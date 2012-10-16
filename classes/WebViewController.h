@@ -9,14 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface WebViewController : UIViewController <UIWebViewDelegate>{
-    IBOutlet UIWebView *webView;
-    NSString *stringURL;
-    UIActivityIndicatorView *activityIndicator;
-}
+@interface WebViewController : UIViewController <UIWebViewDelegate>
 
 @property (nonatomic, retain) UIWebView *webView;
 @property (nonatomic, retain) UIActivityIndicatorView *activityIndicator;
-@property (copy) NSString *stringURL;
+@property (nonatomic, copy) NSString *stringURL;
 
 @end

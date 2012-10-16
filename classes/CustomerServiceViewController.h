@@ -9,13 +9,10 @@
 #import <UIKit/UIKit.h>
 
 
-@interface CustomerServiceViewController : UIViewController {
-    IBOutlet UITextView *customerTextView;
-    IBOutlet UITextView *adminInfoTextView;
-    IBOutlet UITextView *phoneTextView;
-}
+@interface CustomerServiceViewController : UIViewController
 
-@property (nonatomic, retain) UITextView *customerTextView;
-@property (nonatomic, retain) UITextView *adminInfoTextView;
-@property (nonatomic, retain) UITextView *phoneTextView;
+@property (nonatomic, retain) IBOutlet UITextView *customerTextView;
+@property (nonatomic, retain) IBOutlet UITextView *adminInfoTextView;
+@property (nonatomic, retain) IBOutlet UITextView *phoneTextView;
+
 @end

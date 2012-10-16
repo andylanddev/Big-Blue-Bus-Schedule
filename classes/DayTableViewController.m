@@ -11,67 +11,8 @@
 
 @implementation DayTableViewController
 
-@synthesize arrayDay, delegate;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
-
-#pragma mark - View lifecycle
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
+@synthesize arrayDay = _arrayDay;
+@synthesize delegate = _delegate;
 
 #pragma mark - Table view data source
 
@@ -82,7 +23,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [arrayDay count];
+    return [self.arrayDay count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -94,19 +35,26 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [arrayDay objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.arrayDay objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     UITableViewCell *cell = [[self tableView] cellForRowAtIndexPath:indexPath];
-    [delegate didReceiveDaySelection:cell.textLabel.text];
+    [self.delegate didReceiveDaySelection:cell.textLabel.text];
     [self.navigationController popViewControllerAnimated:YES];
 }
+
 -(NSString *)tableView:(UITableView *)tableView titleForFooterInSection:(NSInteger)section {
     return @"Sunday schedules are operated on the following holidays: New Year's Day, Memorial Day, Independence Day, Labor Day, Thanksgiving Day, Christmas Day.";
+}
+
+- (void)dealloc {
+    [_arrayDay release];
+    [super dealloc];
 }
 
 @end

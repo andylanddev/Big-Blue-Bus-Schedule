@@ -11,67 +11,19 @@
 
 @implementation EndStationTableViewController
 
-@synthesize arrayEndStations, delegate, isStartStation;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
+@synthesize arrayEndStations = _arrayEndStations;
+@synthesize delegate = _delegate;
+@synthesize isStartStation = _isStartStation;
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
     if (self.isStartStation)
         self.title = @"Bus From";
     else
         self.title = @"Bus To";
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -81,7 +33,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [arrayEndStations count];
+    return [self.arrayEndStations count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -93,13 +45,14 @@
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [arrayEndStations objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.arrayEndStations objectAtIndex:indexPath.row];
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     int selected = indexPath.row;
     int other = (selected == 0)? 1: 0;
     
@@ -109,10 +62,15 @@
     NSString *stringOther = cell_other.textLabel.text;
 
     if (self.isStartStation)
-        [delegate didReceiveFromSelection:stringSelected withUpdate:stringOther];
+        [self.delegate didReceiveFromSelection:stringSelected withUpdate:stringOther];
     else
-        [delegate didReceiveToSelection:stringSelected withUpdate:stringOther];
+        [self.delegate didReceiveToSelection:stringSelected withUpdate:stringOther];
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)dealloc {
+    [_arrayEndStations release];
+    [super dealloc];
 }
 
 @end

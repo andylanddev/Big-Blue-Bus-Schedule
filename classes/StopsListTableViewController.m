@@ -22,13 +22,8 @@ static int MyCallback(void *context, int count, char **values, char **columns)
 
 @implementation StopsListTableViewController
 
-@synthesize stringShiftId, arrayAllStops;
-
-- (void)dealloc
-{
-    [self.arrayAllStops release];
-    [super dealloc];
-}
+@synthesize stringShiftId = _stringShiftId;
+@synthesize arrayAllStops = _arrayAllStops;
 
 #pragma mark - View lifecycle
 
@@ -64,7 +59,7 @@ static int MyCallback(void *context, int count, char **values, char **columns)
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [arrayAllStops count];
+    return [self.arrayAllStops count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -76,7 +71,7 @@ static int MyCallback(void *context, int count, char **values, char **columns)
         cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
     }
     
-    cell.textLabel.text = [arrayAllStops objectAtIndex:indexPath.row];
+    cell.textLabel.text = [self.arrayAllStops objectAtIndex:indexPath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
@@ -84,6 +79,13 @@ static int MyCallback(void *context, int count, char **values, char **columns)
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)dealloc {
+    [_arrayAllStops release];
+    [_stringShiftId release];
+    [super dealloc];
 }
 
 @end

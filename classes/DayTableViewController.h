@@ -7,13 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyTableViewController.h"
+#import "SearchTableViewController.h"
 
 @protocol MainTableDelegate;
 
-@interface DayTableViewController : UITableViewController {
-    NSArray *arrayDay;
-}
+@interface DayTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *arrayDay;
 @property (nonatomic, assign) id<MainTableDelegate> delegate;

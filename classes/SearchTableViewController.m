@@ -1,5 +1,5 @@
 //
-//  MyTableViewController.m
+//  RouteSearchTableViewController.m
 //  BBB
 //
 //  Created by Jie Zhao on 5/17/11.
@@ -34,11 +34,18 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 }
 
 
-@implementation MyTableViewController
+@implementation SearchTableViewController
 
-@synthesize searchButton;
-@synthesize arrayBusRoutes, arrayBusStops, arrayLines, arrayDate, arrayDirection;
-@synthesize stringDay, stringLine, stringFrom, stringTo;
+@synthesize searchButton = _searchButton;
+@synthesize arrayBusRoutes = _arrayBusRoutes;
+@synthesize arrayBusStops = _arrayBusStops;
+@synthesize arrayLines = _arrayLines;
+@synthesize arrayDate = _arrayDate;
+@synthesize arrayDirection = _arrayDirection;
+@synthesize stringDay = _stringDay;
+@synthesize stringLine = _stringLine;
+@synthesize stringFrom = _stringFrom;
+@synthesize stringTo = _stringTo;
 
 typedef enum searchSectionIndex 
 {
@@ -73,6 +80,7 @@ typedef enum stopPartIndex
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
 	self.arrayBusRoutes = [NSArray arrayWithObjects:@"Line:", @"Day:", nil];
     self.arrayBusStops = [NSArray arrayWithObjects:@"From:", @"To", nil];
     self.arrayDate = [NSArray arrayWithObjects:@"Weekdays", @"Saturday", @"Sunday/Holiday", nil];
@@ -106,18 +114,6 @@ typedef enum stopPartIndex
     [[NSUserDefaults standardUserDefaults] setValue:self.stringTo forKey:@"busTo"];
 }
 
-- (void)dealloc
-{	
-	[arrayBusRoutes release];
-    [arrayBusStops release];
-    [arrayLines release];
-    [arrayDate release];
-    [arrayDirection release];
-    [searchButton release];
-	
-	[super dealloc];
-}
-
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2;
 }
@@ -141,7 +137,8 @@ typedef enum stopPartIndex
         return @"";
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {   
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == SECTION_ROUTE)
     {
         if (indexPath.row == BBB_Line)
@@ -272,7 +269,7 @@ typedef enum stopPartIndex
 // specify the height of your footer section
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
-    return 200;
+    return 200 * section;
 }
 
 -(IBAction) searchAction:(id)sender {
@@ -353,6 +350,21 @@ typedef enum stopPartIndex
     //update the other part: 'from'
     UITableViewCell *cell_from = [[self tableView] cellForRowAtIndexPath:[NSIndexPath indexPathForRow:BBB_From inSection:1]];
     cell_from.detailTextLabel.text = from;
+}
+
+- (void)dealloc {
+	[_arrayBusRoutes release];
+    [_arrayBusStops release];
+    [_arrayLines release];
+    [_arrayDate release];
+    [_arrayDirection release];
+    [_searchButton release];
+    [_stringLine release];
+    [_stringTo release];
+    [_stringDay release];
+    [_stringFrom release];
+
+	[super dealloc];
 }
 
 @end

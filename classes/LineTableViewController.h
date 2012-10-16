@@ -7,14 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyTableViewController.h"
+#import "SearchTableViewController.h"
 
 @protocol MainTableDelegate;
 
 
-@interface LineTableViewController : UITableViewController {
-    NSMutableArray* arrayLines;
-}
+@interface LineTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSMutableArray *arrayLines;
 @property (nonatomic, assign) id<MainTableDelegate> delegate;

@@ -1,5 +1,5 @@
 //
-//  MyTableViewController.h
+//  RouteSearchTableViewController.h
 //  BBB
 //
 //  Created by Jie Zhao on 5/17/11.
@@ -16,25 +16,9 @@
 @end
 
 
-@interface MyTableViewController : UITableViewController <MainTableDelegate>
-{
-@private
-    UIButton *searchButton;
-	
-	NSArray *arrayBusRoutes;
-    NSArray *arrayBusStops;
-    
-    NSMutableArray *arrayLines;
-    NSArray *arrayDate; //Weekdays, Saturday, Sunday/Holiday
-    NSMutableArray *arrayDirection;
-    
-    NSString *stringLine;
-    NSString *stringDay;
-    NSString *stringFrom;
-    NSString *stringTo;
-}
+@interface SearchTableViewController : UITableViewController <MainTableDelegate>
 
-@property (nonatomic, retain) IBOutlet UIButton *searchButton;
+@property (nonatomic, retain) UIButton *searchButton;
 
 @property (nonatomic, retain) NSArray *arrayBusRoutes; 
 @property (nonatomic, retain) NSArray *arrayBusStops;
@@ -42,12 +26,13 @@
 @property (nonatomic, retain) NSMutableArray *arrayLines;
 @property (nonatomic, retain) NSMutableArray *arrayDirection;
 
-@property (copy) NSString *stringLine;
-@property (copy) NSString *stringFrom;
-@property (copy) NSString *stringTo;
-@property (copy) NSString *stringDay;
+@property (nonatomic, copy) NSString *stringLine;
+@property (nonatomic, copy) NSString *stringFrom;
+@property (nonatomic, copy) NSString *stringTo;
+@property (nonatomic, copy) NSString *stringDay;
 
 -(IBAction) searchAction:(id)sender;
+
 @end
 
 

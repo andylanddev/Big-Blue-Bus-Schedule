@@ -3,15 +3,9 @@
 #import <UIKit/UIKit.h>
 #import "MoreInfoTableViewController.h"
 
-@class MyTableViewController;
+@class SearchTableViewController;
 
 @interface AppDelegate : NSObject <UIApplicationDelegate>
-{
-	UIWindow *window;
-	UINavigationController	*navSearch;
-    UINavigationController  *navMore;
-    UITabBarController *tabBarController;
-}
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navSearch;

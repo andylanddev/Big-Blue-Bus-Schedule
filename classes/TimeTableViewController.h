@@ -9,14 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TimeTableViewController : UITableViewController {
-    NSString *stringStopId;
-    NSString *stringDay;
-    NSString *stringLine;
-    NSMutableArray *arrayTimes;
-    NSMutableArray *arrayDiff;
-    int closestTime;
-}
+@interface TimeTableViewController : UITableViewController
 
 @property (copy) NSString *stringStopId;
 @property (copy) NSString *stringDay;

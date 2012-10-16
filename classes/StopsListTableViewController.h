@@ -9,12 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface StopsListTableViewController : UITableViewController {
-    NSString *stringShiftId;
-    NSArray *arrayAllStops;
-}
+@interface StopsListTableViewController : UITableViewController
 
-@property (copy) NSString *stringShiftId;
+@property (nonatomic, copy) NSString *stringShiftId;
 @property (nonatomic, retain) NSArray *arrayAllStops;
 
 @end

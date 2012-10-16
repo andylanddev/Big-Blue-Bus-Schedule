@@ -9,11 +9,9 @@
 #import <UIKit/UIKit.h>
 
 
-@interface MoreInfoTableViewController : UITableViewController {
-    NSArray *arrayContactInfo;
-    NSArray *arrayExternalLinks;
-}
+@interface MoreInfoTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *arrayExternalLinks;
 @property (nonatomic, retain) NSArray *arrayContactInfo;
+
 @end

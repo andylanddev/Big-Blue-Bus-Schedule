@@ -13,67 +13,17 @@
 
 @implementation MoreInfoTableViewController
 
-@synthesize arrayExternalLinks, arrayContactInfo;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [arrayContactInfo release];
-    [arrayExternalLinks release];
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-}
+@synthesize arrayExternalLinks = _arrayExternalLinks;
+@synthesize arrayContactInfo = _arrayContactInfo;
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
     self.title = @"Ride Blue, Go Green";
-    arrayContactInfo = [[NSArray alloc] initWithObjects:@"BBB Customer Service", nil];
-    arrayExternalLinks = [[NSArray alloc] initWithObjects:@"Big Blue Bus homepage",@"Fares & Pass",@"BBB Routes on Google Map", nil];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidDisappear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    self.arrayContactInfo = [[NSArray alloc] initWithObjects:@"BBB Customer Service", nil];
+    self.arrayExternalLinks = [[NSArray alloc] initWithObjects:@"Big Blue Bus homepage",@"Fares & Pass",@"BBB Routes on Google Map", nil];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -86,7 +36,7 @@
     if (section == 0)
         return 1;
     else if (section == 1)
-        return [arrayExternalLinks count];
+        return [self.arrayExternalLinks count];
     else
         return 0;
 }
@@ -121,11 +71,11 @@
     switch (indexPath.section) {
         case 0:
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = [arrayContactInfo objectAtIndex:indexPath.row];
+            cell.textLabel.text = [self.arrayContactInfo objectAtIndex:indexPath.row];
             break;
         case 1:
             cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-            cell.textLabel.text = [arrayExternalLinks objectAtIndex:indexPath.row];
+            cell.textLabel.text = [self.arrayExternalLinks objectAtIndex:indexPath.row];
             break;
             
         default:
@@ -137,6 +87,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.section == 0)
     {
         CustomerServiceViewController *customerServiceController = [[CustomerServiceViewController alloc] init];
@@ -164,6 +115,12 @@
         [self.navigationController pushViewController:webViewController animated:YES];
         [webViewController release];
     }
+}
+
+- (void)dealloc {
+    [_arrayContactInfo release];
+    [_arrayExternalLinks release];
+    [super dealloc];
 }
 
 @end

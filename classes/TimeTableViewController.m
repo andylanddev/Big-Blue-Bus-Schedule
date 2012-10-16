@@ -22,22 +22,12 @@ static int MyStringCallback(void *context, int count, char **values, char **colu
 
 @implementation TimeTableViewController
 
-@synthesize stringStopId, stringDay, stringLine, arrayTimes, closestTime, arrayDiff;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [arrayTimes release];
-    [arrayDiff release];
-    [super dealloc];
-}
+@synthesize stringStopId = _stringStopId;
+@synthesize stringDay = _stringDay;
+@synthesize stringLine = _stringLine;
+@synthesize arrayTimes = _arrayTimes;
+@synthesize closestTime = _closestTime;
+@synthesize arrayDiff = _arrayDiff;
 
 -(void)loadItemsFromDatabaseByQuery:(NSString *)query withArray:(NSMutableArray *)array {
     NSString *file = [[NSBundle mainBundle] pathForResource:@"bbb_schedule_db" ofType:@"sqlite"];
@@ -50,7 +40,7 @@ static int MyStringCallback(void *context, int count, char **values, char **colu
 
 -(void)loadTimesFromDatabase {
     NSString *query = [NSString stringWithFormat:@"SELECT distinct arrive_time FROM stop_time_table where stop_id=%@ order by stoptime_id asc",self.stringStopId];
-    [self loadItemsFromDatabaseByQuery:query withArray:arrayTimes];
+    [self loadItemsFromDatabaseByQuery:query withArray:self.arrayTimes];
 }
 
 -(NSString*) findDiffTime:(NSString *)test {
@@ -132,13 +122,14 @@ static int MyStringCallback(void *context, int count, char **values, char **colu
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.arrayTimes = [[NSMutableArray alloc] init];
     self.arrayDiff = [[NSMutableArray alloc] init];
     [self loadTimesFromDatabase];
     
     self.closestTime = -1;
     for (int i = 0; i < [self.arrayTimes count]; ++i) {
-        NSString *dateString = [arrayTimes objectAtIndex:i];
+        NSString *dateString = [self.arrayTimes objectAtIndex:i];
         NSString *diffString = [self findDiffTime:dateString];
         [self.arrayDiff addObject:diffString];
         if ([diffString length] != 0 && self.closestTime == -1)
@@ -193,7 +184,7 @@ static int MyStringCallback(void *context, int count, char **values, char **colu
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return  [arrayTimes count];
+    return [self.arrayTimes count];
 }
 
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
@@ -233,6 +224,16 @@ static int MyStringCallback(void *context, int count, char **values, char **colu
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Arrivals";
+}
+
+- (void)dealloc {
+    [_stringStopId release];
+    [_stringDay release];
+    [_stringLine release];
+    [_arrayTimes release];
+    [_arrayDiff release];
+    
+    [super dealloc];
 }
 
 @end

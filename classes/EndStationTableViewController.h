@@ -7,17 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MyTableViewController.h"
+#import "SearchTableViewController.h"
 
 @protocol MainTableDelegate;
 
-@interface EndStationTableViewController : UITableViewController {
-    NSMutableArray *arrayEndStations;
-    BOOL isStartStation;
-}
+@interface EndStationTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSMutableArray *arrayEndStations;
 @property (nonatomic, assign) id<MainTableDelegate> delegate;
-@property BOOL isStartStation;
+@property (nonatomic, assign) BOOL isStartStation;
 
 @end

@@ -35,22 +35,10 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 @implementation StopsTableViewController
 
 
-@synthesize stringShiftId, arrayStops, stringLine, stringDay;
-
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [arrayStops release];
-    [super dealloc];
-}
+@synthesize stringShiftId = _stringShiftId;
+@synthesize arrayStops = _arrayStops;
+@synthesize stringLine = _stringLine;
+@synthesize stringDay = _stringDay;
 
 
 -(void)loadItemsFromDatabaseByQuery:(NSString *)query withArray:(NSMutableArray *)array {
@@ -64,7 +52,7 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 
 -(void)loadStopsFromDatabase {
     NSString *query = [NSString stringWithFormat:@"SELECT distinct stop_name FROM shift_stop_table where shift_id=%@ order by stop_id asc",self.stringShiftId];
-    [self loadItemsFromDatabaseByQuery:query withArray:arrayStops];
+    [self loadItemsFromDatabaseByQuery:query withArray:self.arrayStops];
 }
 
 -(IBAction) moreAction:(id)sender
@@ -77,6 +65,7 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
     self.arrayStops = [[NSMutableArray alloc] init];
     [self loadStopsFromDatabase];
 
@@ -94,25 +83,9 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
     }
 }
 
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [arrayStops count];
+    return [self.arrayStops count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -133,7 +106,8 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *selected = [arrayStops objectAtIndex:indexPath.row];
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *selected = [self.arrayStops objectAtIndex:indexPath.row];
     NSString *query = [NSString stringWithFormat:@"SELECT distinct stop_id FROM shift_stop_table where shift_id=%@ and stop_name='%@'",self.stringShiftId, selected];
     NSString *file = [[NSBundle mainBundle] pathForResource:@"bbb_schedule_db" ofType:@"sqlite"];
     sqlite3 *database = NULL;
@@ -153,6 +127,15 @@ static int MyIntCallback(void *context, int count, char **values, char **columns
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return @"Time Point";
+}
+
+- (void)dealloc {
+    [_stringDay release];
+    [_stringLine release];
+    [_stringShiftId release];
+    [_arrayStops release];
+
+    [super dealloc];
 }
 
 @end

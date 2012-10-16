@@ -11,23 +11,9 @@
 
 @implementation WebViewController
 
-@synthesize webView, activityIndicator, stringURL;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    self.webView.delegate = nil;
-    [self.webView release];
-    [self.activityIndicator release]; 
-    [super dealloc];
-}
+@synthesize webView = _webView;
+@synthesize activityIndicator = _activityIndicator;
+@synthesize stringURL = _stringURL;
 
 #pragma mark - View lifecycle
 
@@ -51,24 +37,14 @@
 	[self.view addSubview: self.activityIndicator];
 }
 
-- (void)viewDidLoad
-{	
-    [super viewDidLoad];
-}
-
-- (void)viewDidUnload
-{
-    [super viewDidUnload];
+- (void)viewDidUnload {
     [self.webView stopLoading];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+    self.webView = nil;
+    self.activityIndicator = nil;
+    
+    [super viewDidUnload];
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
 
 #pragma mark WEBVIEW Methods
 
@@ -76,14 +52,14 @@
 {
 	// starting the load, show the activity indicator in the status bar
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	[activityIndicator startAnimating];
+	[self.activityIndicator startAnimating];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
 	// finished loading, hide the activity indicator in the status bar
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-	[activityIndicator stopAnimating];
+	[self.activityIndicator stopAnimating];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
@@ -96,6 +72,15 @@
 							 @"<html><center><br /><br /><font size=+5 color='red'>Error<br /><br />Your request %@</font></center></html>",
 							 error.localizedDescription];
 	[self.webView loadHTMLString:errorString baseURL:nil];
+}
+
+- (void)dealloc {
+    self.webView.delegate = nil;
+    [_webView release];
+    [_activityIndicator release];
+    [_stringURL release];
+    
+    [super dealloc];
 }
 
 @end

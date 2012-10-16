@@ -12,22 +12,13 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		53095FF50D9C4D1A00F143AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 53095FF30D9C4D1A00F143AD /* AppDelegate.m */; };
 		53198DAB0F7ADD8E00E6403A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53198DAA0F7ADD8E00E6403A /* CoreGraphics.framework */; };
+		A18E3230162D54FA00F1E996 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A18E322F162D54FA00F1E996 /* Default-568h@2x.png */; };
 		E712E808138B651100473750 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = E712E807138B651100473750 /* Entitlements.plist */; };
 		E7136ED7137A34FC003C04FE /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E7136ED6137A34FC003C04FE /* libsqlite3.0.dylib */; };
-		E798FFF91380E05600705D73 /* MyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E798FFF11380E05600705D73 /* MyTableViewController.m */; };
+		E798FFF91380E05600705D73 /* SearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E798FFF11380E05600705D73 /* SearchTableViewController.m */; };
 		E798FFFA1380E05600705D73 /* StopsListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E798FFF31380E05600705D73 /* StopsListTableViewController.m */; };
 		E798FFFB1380E05600705D73 /* StopsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E798FFF51380E05600705D73 /* StopsTableViewController.m */; };
 		E798FFFC1380E05600705D73 /* TimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E798FFF71380E05600705D73 /* TimeTableViewController.m */; };
-		E7E7CF0514082A21009B6BAC /* DayTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CEFB14082A21009B6BAC /* DayTableViewController.xib */; };
-		E7E7CF0614082A21009B6BAC /* EndStationTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CEFC14082A21009B6BAC /* EndStationTableViewController.xib */; };
-		E7E7CF0714082A21009B6BAC /* LineTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CEFD14082A21009B6BAC /* LineTableViewController.xib */; };
-		E7E7CF0814082A21009B6BAC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CEFE14082A21009B6BAC /* MainWindow.xib */; };
-		E7E7CF0914082A21009B6BAC /* MoreInfoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CEFF14082A21009B6BAC /* MoreInfoTableViewController.xib */; };
-		E7E7CF0A14082A21009B6BAC /* StopsListTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0014082A21009B6BAC /* StopsListTableViewController.xib */; };
-		E7E7CF0B14082A21009B6BAC /* StopsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0114082A21009B6BAC /* StopsTableViewController.xib */; };
-		E7E7CF0C14082A21009B6BAC /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0214082A21009B6BAC /* TableViewController.xib */; };
-		E7E7CF0D14082A21009B6BAC /* TimeTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0314082A21009B6BAC /* TimeTableViewController.xib */; };
-		E7E7CF0E14082A21009B6BAC /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0414082A21009B6BAC /* WebViewController.xib */; };
 		E7E7CF1314082A3C009B6BAC /* bbb.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF0F14082A3C009B6BAC /* bbb.png */; };
 		E7E7CF1414082A3C009B6BAC /* bus_small.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF1014082A3C009B6BAC /* bus_small.png */; };
 		E7E7CF1514082A3C009B6BAC /* button_green.png in Resources */ = {isa = PBXBuildFile; fileRef = E7E7CF1114082A3C009B6BAC /* button_green.png */; };
@@ -52,26 +43,17 @@
 		53095FF30D9C4D1A00F143AD /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		53198DAA0F7ADD8E00E6403A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A18E322F162D54FA00F1E996 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		E712E807138B651100473750 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		E7136ED6137A34FC003C04FE /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
-		E798FFF01380E05600705D73 /* MyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyTableViewController.h; path = classes/MyTableViewController.h; sourceTree = "<group>"; };
-		E798FFF11380E05600705D73 /* MyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyTableViewController.m; path = classes/MyTableViewController.m; sourceTree = "<group>"; };
+		E798FFF01380E05600705D73 /* SearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchTableViewController.h; path = classes/SearchTableViewController.h; sourceTree = "<group>"; };
+		E798FFF11380E05600705D73 /* SearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchTableViewController.m; path = classes/SearchTableViewController.m; sourceTree = "<group>"; };
 		E798FFF21380E05600705D73 /* StopsListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopsListTableViewController.h; path = classes/StopsListTableViewController.h; sourceTree = "<group>"; };
 		E798FFF31380E05600705D73 /* StopsListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopsListTableViewController.m; path = classes/StopsListTableViewController.m; sourceTree = "<group>"; };
 		E798FFF41380E05600705D73 /* StopsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StopsTableViewController.h; path = classes/StopsTableViewController.h; sourceTree = "<group>"; };
 		E798FFF51380E05600705D73 /* StopsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = StopsTableViewController.m; path = classes/StopsTableViewController.m; sourceTree = "<group>"; };
 		E798FFF61380E05600705D73 /* TimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeTableViewController.h; path = classes/TimeTableViewController.h; sourceTree = "<group>"; };
 		E798FFF71380E05600705D73 /* TimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeTableViewController.m; path = classes/TimeTableViewController.m; sourceTree = "<group>"; };
-		E7E7CEFB14082A21009B6BAC /* DayTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = DayTableViewController.xib; path = xib/DayTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CEFC14082A21009B6BAC /* EndStationTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = EndStationTableViewController.xib; path = xib/EndStationTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CEFD14082A21009B6BAC /* LineTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = LineTableViewController.xib; path = xib/LineTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CEFE14082A21009B6BAC /* MainWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MainWindow.xib; path = xib/MainWindow.xib; sourceTree = "<group>"; };
-		E7E7CEFF14082A21009B6BAC /* MoreInfoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MoreInfoTableViewController.xib; path = xib/MoreInfoTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CF0014082A21009B6BAC /* StopsListTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopsListTableViewController.xib; path = xib/StopsListTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CF0114082A21009B6BAC /* StopsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = StopsTableViewController.xib; path = xib/StopsTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CF0214082A21009B6BAC /* TableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TableViewController.xib; path = xib/TableViewController.xib; sourceTree = "<group>"; };
-		E7E7CF0314082A21009B6BAC /* TimeTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TimeTableViewController.xib; path = xib/TimeTableViewController.xib; sourceTree = "<group>"; };
-		E7E7CF0414082A21009B6BAC /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewController.xib; path = xib/WebViewController.xib; sourceTree = "<group>"; };
 		E7E7CF0F14082A3C009B6BAC /* bbb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bbb.png; path = Resource/bbb.png; sourceTree = "<group>"; };
 		E7E7CF1014082A3C009B6BAC /* bus_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bus_small.png; path = Resource/bus_small.png; sourceTree = "<group>"; };
 		E7E7CF1114082A3C009B6BAC /* button_green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button_green.png; path = Resource/button_green.png; sourceTree = "<group>"; };
@@ -118,6 +100,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A18E322F162D54FA00F1E996 /* Default-568h@2x.png */,
 				E712E807138B651100473750 /* Entitlements.plist */,
 				53AF8AEC0D9C50B700726DBA /* Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -130,16 +113,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E7E7CEFB14082A21009B6BAC /* DayTableViewController.xib */,
-				E7E7CEFC14082A21009B6BAC /* EndStationTableViewController.xib */,
-				E7E7CEFD14082A21009B6BAC /* LineTableViewController.xib */,
-				E7E7CEFE14082A21009B6BAC /* MainWindow.xib */,
-				E7E7CEFF14082A21009B6BAC /* MoreInfoTableViewController.xib */,
-				E7E7CF0014082A21009B6BAC /* StopsListTableViewController.xib */,
-				E7E7CF0114082A21009B6BAC /* StopsTableViewController.xib */,
-				E7E7CF0214082A21009B6BAC /* TableViewController.xib */,
-				E7E7CF0314082A21009B6BAC /* TimeTableViewController.xib */,
-				E7E7CF0414082A21009B6BAC /* WebViewController.xib */,
 				E7F06E5F1380DCB2004D34FD /* bbb_schedule_db.sqlite */,
 				7E3703DF11CA98C900F5DB11 /* Images */,
 				8D1107310486CEB800E47090 /* Info.plist */,
@@ -162,8 +135,8 @@
 		53AF8AEC0D9C50B700726DBA /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				E798FFF01380E05600705D73 /* MyTableViewController.h */,
-				E798FFF11380E05600705D73 /* MyTableViewController.m */,
+				E798FFF01380E05600705D73 /* SearchTableViewController.h */,
+				E798FFF11380E05600705D73 /* SearchTableViewController.m */,
 				E7FB77161389FCA400595F53 /* WebViewController.h */,
 				E7FB77171389FCA400595F53 /* WebViewController.m */,
 				E7FB77131389FC9900595F53 /* MoreInfoTableViewController.h */,
@@ -254,20 +227,11 @@
 				E7F06E601380DCB2004D34FD /* bbb_schedule_db.sqlite in Resources */,
 				E7FB77091389CEBA00595F53 /* CustomerServiceViewController.xib in Resources */,
 				E712E808138B651100473750 /* Entitlements.plist in Resources */,
-				E7E7CF0514082A21009B6BAC /* DayTableViewController.xib in Resources */,
-				E7E7CF0614082A21009B6BAC /* EndStationTableViewController.xib in Resources */,
-				E7E7CF0714082A21009B6BAC /* LineTableViewController.xib in Resources */,
-				E7E7CF0814082A21009B6BAC /* MainWindow.xib in Resources */,
-				E7E7CF0914082A21009B6BAC /* MoreInfoTableViewController.xib in Resources */,
-				E7E7CF0A14082A21009B6BAC /* StopsListTableViewController.xib in Resources */,
-				E7E7CF0B14082A21009B6BAC /* StopsTableViewController.xib in Resources */,
-				E7E7CF0C14082A21009B6BAC /* TableViewController.xib in Resources */,
-				E7E7CF0D14082A21009B6BAC /* TimeTableViewController.xib in Resources */,
-				E7E7CF0E14082A21009B6BAC /* WebViewController.xib in Resources */,
 				E7E7CF1314082A3C009B6BAC /* bbb.png in Resources */,
 				E7E7CF1414082A3C009B6BAC /* bus_small.png in Resources */,
 				E7E7CF1514082A3C009B6BAC /* button_green.png in Resources */,
 				E7E7CF1614082A3C009B6BAC /* date_small.png in Resources */,
+				A18E3230162D54FA00F1E996 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +244,7 @@
 			files = (
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				53095FF50D9C4D1A00F143AD /* AppDelegate.m in Sources */,
-				E798FFF91380E05600705D73 /* MyTableViewController.m in Sources */,
+				E798FFF91380E05600705D73 /* SearchTableViewController.m in Sources */,
 				E798FFFA1380E05600705D73 /* StopsListTableViewController.m in Sources */,
 				E798FFFB1380E05600705D73 /* StopsTableViewController.m in Sources */,
 				E798FFFC1380E05600705D73 /* TimeTableViewController.m in Sources */,
@@ -300,8 +264,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Zhao";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -312,7 +276,8 @@
 				INFOPLIST_FILE = Info.plist;
 				PREBINDING = NO;
 				PRODUCT_NAME = BBB;
-				PROVISIONING_PROFILE = "C8A04777-4747-4077-8A2B-50790BBA3D19";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Debug;
@@ -321,8 +286,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Zhao";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -331,7 +296,8 @@
 				INFOPLIST_FILE = Info.plist;
 				PREBINDING = NO;
 				PRODUCT_NAME = BBB;
-				PROVISIONING_PROFILE = "C8A04777-4747-4077-8A2B-50790BBA3D19";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Release;
@@ -391,8 +357,8 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				"CODE_SIGN_ENTITLEMENTS[sdk=*]" = "";
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Jie Zhao";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Jie Zhao";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -401,8 +367,8 @@
 				INFOPLIST_FILE = Info.plist;
 				PREBINDING = NO;
 				PRODUCT_NAME = BBB;
-				PROVISIONING_PROFILE = "C8A04777-4747-4077-8A2B-50790BBA3D19";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "C8A04777-4747-4077-8A2B-50790BBA3D19";
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.3;
 			};
 			name = Distribution;

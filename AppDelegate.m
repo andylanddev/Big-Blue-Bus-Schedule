@@ -1,12 +1,20 @@
 
 
 #import "AppDelegate.h"
-#import "MyTableViewController.h"
+#import "SearchTableViewController.h"
 
+@interface AppDelegate()
+
+@property (nonatomic, retain) UITabBarController *tabBarController;
+
+@end
 
 @implementation AppDelegate;
 
-@synthesize window, navSearch, navMore;
+@synthesize window;
+@synthesize navSearch;
+@synthesize navMore;
+@synthesize tabBarController;
 
 - (void)dealloc
 {
@@ -20,25 +28,33 @@
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application
 {
+    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
     // create window and set up table view controller
-    tabBarController = [[UITabBarController alloc] init];
-    
+    self.tabBarController = [[[UITabBarController alloc] init] autorelease];
+
+    self.navSearch = [[[UINavigationController alloc] init] autorelease];
     UITabBarItem *itemSearch = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemSearch tag:0];
-    navSearch.tabBarItem = itemSearch;
+    self.navSearch.tabBarItem = itemSearch;
     [itemSearch release];
-    
+
+    self.navMore = [[[UINavigationController alloc] init] autorelease];
     UITabBarItem *itemMore = [[UITabBarItem alloc] initWithTabBarSystemItem:UITabBarSystemItemMore tag:0];
-    navMore.tabBarItem = itemMore;
+    self.navMore.tabBarItem = itemMore;
     [itemMore release];
     
-    tabBarController.viewControllers = [NSArray arrayWithObjects:navSearch, navMore, nil];
-    
+    self.tabBarController.viewControllers = [NSArray arrayWithObjects:navSearch, navMore, nil];
+
+    SearchTableViewController *routeViewController = [[[SearchTableViewController alloc] initWithStyle:UITableViewStyleGrouped] autorelease];
+    routeViewController.title = @"Big Blue Bus";
+    [self.navSearch pushViewController:routeViewController animated:NO];
+
     MoreInfoTableViewController *moreInfoController = [[MoreInfoTableViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    [navMore pushViewController:moreInfoController animated:NO];
+    [self.navMore pushViewController:moreInfoController animated:NO];
 
     [moreInfoController release];
-	[window addSubview:tabBarController.view];
-	[window makeKeyAndVisible];
+    [self.window setRootViewController:self.tabBarController];
+	[self.window addSubview:tabBarController.view];
+	[self.window makeKeyAndVisible];
 }
 
 @end

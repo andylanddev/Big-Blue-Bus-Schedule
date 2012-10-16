@@ -11,54 +11,34 @@
 
 @implementation CustomerServiceViewController
 
-@synthesize customerTextView, adminInfoTextView, phoneTextView;
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
-- (void)dealloc
-{
-    [super dealloc];
-}
-
-- (void)didReceiveMemoryWarning
-{
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
-}
+@synthesize customerTextView = _customerTextView;
+@synthesize adminInfoTextView = _adminInfoTextView;
+@synthesize phoneTextView = _phoneTextView;
 
 #pragma mark - View lifecycle
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad {
     [super viewDidLoad];
     
-    customerTextView.editable = NO;
-    customerTextView.dataDetectorTypes = UIDataDetectorTypeAll;
-    adminInfoTextView.editable = NO;
-    adminInfoTextView.dataDetectorTypes = UIDataDetectorTypeAll;
-    // Do any additional setup after loading the view from its nib.
+    self.customerTextView.editable = NO;
+    self.customerTextView.dataDetectorTypes = UIDataDetectorTypeAll;
+    self.adminInfoTextView.editable = NO;
+    self.adminInfoTextView.dataDetectorTypes = UIDataDetectorTypeAll;
 }
 
-- (void)viewDidUnload
-{
+- (void)viewDidUnload {
+    self.customerTextView = nil;
+    self.adminInfoTextView = nil;
+    self.phoneTextView = nil;
+    
     [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
 }
 
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+- (void)dealloc {
+    [_customerTextView release];
+    [_adminInfoTextView release];
+    [_phoneTextView release];
+    [super dealloc];
 }
 
 @end

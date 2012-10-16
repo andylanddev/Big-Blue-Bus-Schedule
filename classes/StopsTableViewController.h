@@ -9,16 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface StopsTableViewController : UITableViewController {  
-    NSString *stringShiftId;
-    NSString *stringDay;
-    NSString *stringLine;
-    NSMutableArray *arrayStops;
-}
+@interface StopsTableViewController : UITableViewController
 
-@property (copy) NSString *stringShiftId;
-@property (copy) NSString *stringDay;
-@property (copy) NSString *stringLine;
+@property (nonatomic, copy) NSString *stringShiftId;
+@property (nonatomic, copy) NSString *stringDay;
+@property (nonatomic, copy) NSString *stringLine;
 @property (nonatomic, retain) NSMutableArray *arrayStops;
 
 -(IBAction) moreAction:(id)sender;
